@@ -1,0 +1,9 @@
+V11 CHANGES (items 5-11)
+5  Product cards: rounded 26px, hover lift, pill badges (Bestseller/New/Discount), pill buttons.
+6  Footer: floating rounded box, same style as header.
+7  Reader comfort: text reader me Line Spacing (Tight/Normal/Relaxed) + settings yaad rehte hain; PDF reader (My Books) me Light/Sepia/Dark mode.
+8  Search: rounded search box, recent searches, book covers in results.
+9  Reading progress: My Books me progress bar + "Continue from page X". (Browser me save hota hai, SQL nahi chahiye.)
+10 Testimonials slider: Admin > Homepage Editor > Reader Testimonials.
+11 Announcement bar: Admin > Homepage Editor > Top Announcement Bar (on/off, text, coupon code, link).
+Admin me "Publish Homepage" dabana zaroori hai.

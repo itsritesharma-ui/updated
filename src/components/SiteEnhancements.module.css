@@ -1,0 +1,51 @@
+.progressTrack {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 16px rgba(255, 153, 51, 0.45);
+  transition: width 80ms linear;
+}
+
+.backToTop {
+  position: fixed;
+  right: 22px;
+  bottom: 84px;
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: #17110a;
+  font-size: 20px;
+  font-weight: 900;
+  background: var(--gradient-brand);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  transform: translateY(12px) scale(.92);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+}
+
+.backToTop.visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.backToTop:hover { transform: translateY(-3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .progressBar, .backToTop { transition: none; }
+}
+
+@media (max-width: 640px) {
+  .backToTop { right: 14px; bottom: 76px; width: 40px; height: 40px; }
+}

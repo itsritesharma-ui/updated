@@ -1,0 +1,73 @@
+.overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(8,7,5,0.75);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+.card {
+  position: relative;
+  background: var(--bg-2);
+  border: 1px solid rgba(201,146,42,0.2);
+  border-radius: 14px;
+  max-width: 420px; width: 100%;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: popIn 0.35s ease;
+}
+.closeBtn {
+  position: absolute; top: 10px; right: 10px; z-index: 2;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15);
+  color: #fff; font-size: 13px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+.closeBtn:hover { background: rgba(0,0,0,0.75); }
+.flagStrip { display: flex; height: 4px; width: 100%; }
+.saffron { flex: 1; background: #ff9933; }
+.white { flex: 1; background: #ffffff; }
+.green { flex: 1; background: #138808; }
+
+.cover {
+  width: 100%; height: 200px; object-fit: cover;
+  display: block;
+}
+.body { padding: 20px 24px 26px; text-align: center; }
+.badge {
+  display: inline-block;
+  font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--gold); font-weight: 700; margin-bottom: 8px;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: 24px; font-weight: 900; color: var(--white);
+  margin-bottom: 8px;
+}
+.sub {
+  font-size: 13px; color: var(--text-3); line-height: 1.5;
+  margin-bottom: 20px;
+}
+.btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.btnPrimary {
+  background: var(--gold); color: #1a1308;
+  border: none; padding: 10px 20px; border-radius: 8px;
+  font-weight: 700; font-size: 13px; cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btnPrimary:hover { opacity: 0.88; }
+.btnGhost {
+  background: transparent; color: var(--text-3);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 13px; cursor: pointer; transition: all 0.15s;
+}
+.btnGhost:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.92) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}

@@ -1,0 +1,15 @@
+ThePageCraft Owner Control Center v5
+
+What changed:
+- Revoke access is available for EVERY customer/book, including paid purchases. Purchase history is preserved; status becomes revoked.
+- Book editor now has private PDF path, page count and PDF upload/replace.
+- Media & Book Files can preview private PDFs in an admin protected reader.
+- Product cards show PDF attached/missing and can open the reader.
+- Public My Books reads product PDF paths dynamically from Supabase, so uploaded PDFs work without code changes.
+- Admin remains inside public/tpc-owner-261/.
+
+REQUIRED ONCE:
+Run RUN_THIS_OWNER_UPGRADE.sql in Supabase SQL Editor again. It is safe to re-run.
+
+ECHOES OF FREEDOM:
+The uploaded source ZIP did not contain the actual Echoes of Freedom PDF, so no PDF bytes could be restored automatically. In Admin > Books / Products > Echoes of Freedom > Edit, upload your original PDF. Suggested storage path: echoes-of-freedom.pdf. After Save, both the website My Books reader and Admin reader use the same private PDF.

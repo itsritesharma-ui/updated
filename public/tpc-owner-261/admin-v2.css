@@ -1,0 +1,191 @@
+/* ThePageCraft Admin v12 — dashboard + login redesign (loaded last) */
+html[data-theme="light"]{--bg:#e4e5e7;--panel:#fff;--panel2:#f4f4f5;--text:#101214;--muted:#868b94;--line:rgba(16,18,20,.08);--line2:rgba(16,18,20,.16);--gold:#e8741a;--gold2:#f08a35;--ink:#14181c;--ink-text:#fff;--frame:#efeff0;--card:rgba(255,255,255,.78);--cardLine:rgba(255,255,255,.95);--track:rgba(16,18,20,.07);--shadow:0 10px 34px rgba(20,24,28,.06);--font-display:'Inter Tight','Inter',system-ui,sans-serif}
+html[data-theme="dark"]{--bg:#0a0b0d;--panel:#1b1e22;--panel2:#23272c;--text:#f2f3f4;--muted:#8d939c;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.16);--gold:#ff9933;--gold2:#ffb74d;--ink:#f2f3f4;--ink-text:#101214;--frame:#14171a;--card:rgba(32,36,41,.8);--cardLine:rgba(255,255,255,.06);--track:rgba(255,255,255,.09);--shadow:0 10px 34px rgba(0,0,0,.35);--font-display:'Inter Tight','Inter',system-ui,sans-serif}
+html[data-theme] body{background:var(--bg);background-image:none;color:var(--text);font-family:'Inter',system-ui,sans-serif}
+html[data-theme] #app .main{background:var(--frame);color:var(--text)}
+
+/* ---------- Shell ---------- */
+html[data-theme] #app .appShell{width:calc(100% - 28px);min-height:calc(100vh - 28px);margin:14px;padding:0;gap:14px;grid-template-columns:262px minmax(0,1fr);background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible}
+html[data-theme] #app .sidebar{height:calc(100vh - 28px);top:14px;display:flex;flex-direction:column;padding:26px 16px 18px;border:0;border-radius:32px;background:#14181c;color:#fff;overflow:hidden;box-shadow:0 18px 50px rgba(10,12,14,.25)}
+html[data-theme="dark"] #app .sidebar{background:#0f1215;border:1px solid var(--line)}
+html[data-theme] #app .sideBrand{padding:2px 8px 26px;gap:12px}
+html[data-theme] #app .sideBrand strong{color:#fff;font-size:17px;font-weight:700;letter-spacing:-.02em}
+html[data-theme] #app .sideBrand>div>span{color:#8b919a;font-size:11px}
+html[data-theme] #app .sideBrand .sideLogo{border-radius:14px;background:#fff;box-shadow:none;width:40px;height:40px}
+html[data-theme] #app .nav{flex:1;min-height:0;overflow:auto;gap:5px;margin:0;padding:0 0 12px;scrollbar-width:none}
+html[data-theme] #app .nav::-webkit-scrollbar{display:none}
+html[data-theme] #app .nav button{border-radius:999px;border:0;padding:12px 16px;color:#aab0b8;font-size:13.5px;font-weight:550;transition:background-color .2s,color .2s}
+html[data-theme] #app .nav button span{width:20px;color:inherit;opacity:.85}
+html[data-theme] #app .nav button:hover{background:rgba(255,255,255,.07);color:#fff;border:0}
+html[data-theme] #app .nav button.active{background:#fff;color:#101214;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+html[data-theme] #app .sideFoot{position:static;width:100%;display:grid;gap:6px;padding:12px 0 0;background:none;border-top:1px solid rgba(255,255,255,.08)}
+html[data-theme] #app .sideLink{color:#aab0b8;background:transparent;border:0;border-radius:999px;padding:9px 14px;font-size:12.5px;display:flex;align-items:center;gap:9px;text-align:left}
+html[data-theme] #app .sideLink:hover{background:rgba(255,255,255,.07);color:#fff}
+html[data-theme] #app .idleBadge{color:#7e848d;font-size:11px;padding:4px 14px;background:none;border:0}
+.modeLabel{margin:8px 4px 2px;color:#c9cdd2;font-size:12px;font-weight:600}
+.modeToggle{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:5px;border-radius:999px;background:#23282d}
+.modeToggle button{height:38px;border:0;border-radius:999px;background:transparent;color:#8b919a;font-size:16px;transition:background-color .2s,color .2s}
+.modeToggle button.on{background:#fff;color:#101214;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+html[data-theme] #app .main{min-width:0;padding:30px 32px 40px;border-radius:32px;box-shadow:inset 0 0 0 1px var(--cardLine)}
+html[data-theme] #app .topbar{height:auto;margin:0 0 26px;padding:0;border:0;background:transparent;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.pageTitleBlock h1{margin:0;font:700 clamp(30px,3.4vw,44px)/1.05 var(--font-display);letter-spacing:-.035em;color:var(--text)}
+.pageTitleBlock p{margin:8px 0 0;color:var(--muted);font-size:13px}
+html[data-theme] #app .topUtility{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.searchPill{display:flex;align-items:center;gap:9px;height:46px;min-width:210px;padding:0 18px;border:1px solid var(--cardLine);border-radius:999px;background:var(--card);color:var(--muted);font-size:13px;box-shadow:var(--shadow)}
+.searchPill:hover{color:var(--text)}
+html[data-theme] #app .adminAvatar{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#ffb74d,#e8741a);color:#fff;font-size:13px;font-weight:800;box-shadow:0 0 0 3px var(--card),0 6px 16px rgba(232,116,26,.3)}
+
+/* ---------- Buttons, cards, inputs ---------- */
+html[data-theme] #app .btn{border-radius:999px;font-size:12.5px;padding:11px 20px}
+html[data-theme] #app .btn.primary,html[data-theme] #app .primary{background:var(--ink);color:var(--ink-text);box-shadow:0 8px 20px rgba(0,0,0,.14);border:0}
+html[data-theme] #app .btn.primary:hover{opacity:.88;background:var(--ink)}
+html[data-theme] #app .btn.secondary,html[data-theme] #app .btn.ghost{background:var(--card);border:1px solid var(--cardLine);color:var(--text);box-shadow:var(--shadow)}
+html[data-theme] #app .card,html[data-theme] #app .panel,html[data-theme] #app .stat,html[data-theme] #app .item,html[data-theme] #app .customerCard,html[data-theme] #app .mediaCard,html[data-theme] #app .settingCard,html[data-theme] #app .moreCard{background:var(--card);border:1px solid var(--cardLine);border-radius:28px;color:var(--text);box-shadow:var(--shadow);backdrop-filter:blur(14px)}
+html[data-theme] #app .panel{padding:24px}
+html[data-theme] #app .panel h2{color:var(--text);font-family:var(--font-display);font-weight:700;letter-spacing:-.02em}
+html[data-theme] #app .eyebrow{color:var(--muted);font-size:10px;letter-spacing:.14em}
+html[data-theme] #app input,html[data-theme] #app textarea,html[data-theme] #app select{background:var(--panel);border:1px solid var(--line);border-radius:14px;color:var(--text)}
+html[data-theme] #app input:focus,html[data-theme] #app textarea:focus,html[data-theme] #app select:focus{border-color:var(--ink);box-shadow:0 0 0 3px var(--track)}
+html[data-theme] #app .quick{background:var(--panel);border-color:var(--line);border-radius:18px;color:var(--text)}
+html[data-theme] #app .modal{border-radius:30px;background:var(--panel);color:var(--text)}
+html[data-theme] #app .quickControlPanel{display:grid;gap:18px;margin-top:18px}
+html[data-theme] #app .insightGrid.single{grid-template-columns:1fr;margin-top:18px}
+html[data-theme] #app .mobileNav{background:var(--panel);border-color:var(--line);border-radius:22px 22px 0 0}
+html[data-theme] #app .mobileNav button.active{color:var(--text);font-weight:800}
+
+/* ---------- Overview dashboard ---------- */
+.ovHead{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.ovSub{margin:0;color:var(--muted);font-size:13px}
+.rangePills{display:flex;gap:8px;flex-wrap:wrap}
+.rangePills button{height:42px;padding:0 20px;border:1px solid var(--cardLine);border-radius:999px;background:var(--card);color:var(--text);font-size:12.5px;font-weight:650;box-shadow:var(--shadow);transition:background-color .2s,color .2s}
+.rangePills button.on{background:var(--ink);color:var(--ink-text)}
+.ovGrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px}
+.ovCard{background:var(--card);border:1px solid var(--cardLine);border-radius:30px;padding:26px;box-shadow:var(--shadow);backdrop-filter:blur(14px);min-width:0}
+.ovCardHead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+.ovCardHead h2{margin:0;font:700 17px var(--font-display);letter-spacing:-.02em}
+.okText{color:#2ea043;font-size:12px;font-weight:700}
+.salesTop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}
+.bigNum{display:block;font:600 clamp(36px,4vw,52px)/1 var(--font-display);letter-spacing:-.04em}
+.salesTop small{display:block;margin-top:8px;color:var(--muted);font-size:11.5px}
+.chip{font-style:normal;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px}
+.chip.up{background:#d9f5d2;color:#1d7a2d}.chip.down{background:#ffdad6;color:#c0392b}
+.gradTrack{display:flex;align-items:center;gap:14px;height:58px;border-radius:999px;background:var(--track);padding:0 16px 0 0;margin-bottom:22px}
+.gradFill{position:relative;flex:0 0 auto;height:100%;border-radius:999px;background:linear-gradient(90deg,#ff7a59 0%,#ffb866 45%,#9be15d 100%);display:flex;align-items:center;padding-left:20px;color:#3a2a10;font-size:13px;font-weight:700;min-width:150px;transition:width .6s ease}
+.gradFill::after{content:"";position:absolute;right:-3px;top:50%;width:5px;height:34px;transform:translateY(-50%);border-radius:4px;background:var(--ink)}
+.gradTrack>b{margin-left:auto;font:600 15px var(--font-display);white-space:nowrap}
+.trendLabels{display:flex;justify-content:space-between;padding-left:160px;color:var(--muted);font-size:12px;margin-bottom:6px}
+.trendLabels span:nth-child(2){color:var(--text);font-weight:700}
+.trendWrap{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;align-items:end}
+.trendWrap h3{margin:0;font:700 26px/1.05 var(--font-display);letter-spacing:-.03em}
+.trendBars{display:flex;align-items:flex-end;gap:3px;height:130px}
+.trendBars i{flex:1;min-width:2px;border-radius:3px;transform-origin:bottom;animation:barGrow .55s ease both;animation-delay:var(--d)}
+@keyframes barGrow{from{transform:scaleY(.1);opacity:0}}
+.podium{display:flex;justify-content:center;align-items:flex-end;gap:18px;margin:6px 0 18px}
+.podiumItem{display:grid;justify-items:center;gap:6px;color:var(--muted);font-size:11px}
+.podiumImg{position:relative;width:54px;height:54px;border-radius:50%}
+.podiumItem.p0 .podiumImg{width:64px;height:64px}
+.podiumImg img{width:100%;height:100%;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--panel),0 8px 18px rgba(0,0,0,.14)}
+.podiumImg b{position:absolute;right:-4px;bottom:-4px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--ink-text);font-size:11px}
+.bestList{display:grid;gap:4px}
+.bestList button{display:flex;align-items:center;gap:12px;padding:8px 10px;border:0;border-radius:18px;background:transparent;color:var(--text);text-align:left;transition:background-color .2s}
+.bestList button:hover{background:var(--track)}
+.bestList img{width:38px;height:38px;border-radius:50%;object-fit:cover;flex:none}
+.bestList b{display:block;font-size:13px;font-weight:650;line-height:1.25}
+.bestList small{color:var(--muted);font-size:11px}
+.bestList em{font-style:normal;color:#e8a317;font-size:12px;font-weight:700;white-space:nowrap}
+.ovSection{margin:26px 0 14px;font:700 20px var(--font-display);letter-spacing:-.02em}
+.metricRow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.metricCard{padding:20px 20px 18px;border-radius:26px;background:var(--card);border:1px solid var(--cardLine);box-shadow:var(--shadow);backdrop-filter:blur(14px)}
+.metricCard header{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:650}
+.metricGlyph{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;background:var(--track);font-size:13px;color:var(--text)}
+.metricNum{display:flex;align-items:center;gap:9px;margin:14px 0 4px}
+.metricNum strong{font:600 38px/1 var(--font-display);letter-spacing:-.04em}
+.metricCard small{display:block;color:var(--muted);font-size:11.5px}
+.metricBar{position:relative;display:flex;align-items:center;gap:10px;margin-top:16px;font-size:12px;font-weight:700}
+.metricBar::before{content:"";position:absolute;left:0;right:50px;height:4px;border-radius:99px;background:var(--track)}
+.metricBar i{position:relative;height:4px;border-radius:99px;background:linear-gradient(90deg,#ff9a5a,#9be15d);min-width:4px;transition:width .6s ease}
+.metricBar span{margin-left:auto}
+
+/* ---------- Login ---------- */
+html[data-theme] body:has(.loginScene){background:var(--frame)}
+.loginScene{min-height:100vh;display:grid;grid-template-columns:minmax(340px,.85fr) 1.15fr;padding:14px;background:var(--frame);font-family:'Poppins','Inter',system-ui,sans-serif;color:var(--text)}
+.loginSide{display:grid;place-items:center;padding:36px 28px}
+.loginFormWrap{width:min(100%,330px)}
+.loginLogo{width:48px;height:48px;border-radius:14px;object-fit:cover;display:block;box-shadow:0 6px 18px rgba(0,0,0,.14)}
+.loginBrandName{display:block;margin:8px 0 0;font-size:13px;font-weight:600;letter-spacing:-.01em}
+.loginTitle{margin:26px 0 22px;font-size:30px;font-weight:600;letter-spacing:-.03em}
+.loginForm{display:grid;gap:16px}
+.loginLabel{display:grid;gap:8px;font-size:11.5px;font-weight:600;color:var(--text)}
+.loginField{position:relative;display:flex;align-items:center;height:46px;border-radius:10px;background:#fff;box-shadow:0 2px 10px rgba(20,24,28,.05);border:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+html[data-theme="dark"] .loginField{background:var(--panel)}
+.loginField:focus-within{border-color:var(--ink);box-shadow:0 0 0 3px var(--track)}
+.loginField i{display:grid;place-items:center;width:42px;color:#6d727b}
+html[data-theme] #app .loginField input{flex:1;height:100%;border:0;border-radius:0;background:transparent;box-shadow:none;padding:0 8px 0 0;font-size:13px;color:var(--text)}
+.loginField.readonly input{color:#6d727b}
+.pwToggle{width:42px;height:100%;border:0;background:transparent;color:#8b9099;display:grid;place-items:center}
+.pwToggle.on,.pwToggle:hover{color:var(--text)}
+.loginSubmit{height:46px;margin-top:6px;border:0;border-radius:10px;background:#17181a;color:#fff;font:600 13.5px 'Poppins','Inter',sans-serif;box-shadow:0 8px 22px rgba(0,0,0,.18);transition:transform .15s,opacity .2s}
+html[data-theme="dark"] .loginSubmit{background:#f2f3f4;color:#101214}
+.loginSubmit:hover{transform:translateY(-1px)}.loginSubmit:disabled{opacity:.6;cursor:wait}
+.loginWelcome{display:flex;align-items:center;gap:14px;margin-top:30px}
+.welcomeAvatar{width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 4px 16px rgba(20,24,28,.1);display:grid;place-items:center;overflow:hidden;flex:none}
+.welcomeAvatar img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.loginWelcome small{display:block;color:var(--muted);font-size:11px}
+.loginWelcome strong{display:block;font-size:17px;font-weight:600;letter-spacing:-.02em}
+.loginLock{margin:26px 0 0;color:var(--muted);font-size:11px}
+.loginArt{position:relative}
+.artCard{position:relative;height:100%;min-height:calc(100vh - 28px);border-radius:38px;overflow:hidden;background:#080808;color:#fff;box-shadow:0 30px 80px rgba(20,24,28,.18)}
+.artImg{position:absolute;inset:0 0 auto 0;width:100%;height:68%;object-fit:cover;object-position:center top}
+.artText{position:absolute;left:11%;right:11%;top:52%}
+.artBrand{font-size:12px;font-weight:600;color:#d7d7d9}
+.artText h2{margin:14px 0 12px;font-size:clamp(26px,2.6vw,34px);font-weight:600;letter-spacing:-.03em;line-height:1.15}
+.artText p{margin:0 0 10px;max-width:440px;color:#a9a9ad;font-size:12px;line-height:1.65}
+.artText .artLine{color:#e6e6e8;font-size:13px}
+.artNotch{position:absolute;left:9%;right:9%;bottom:6%;padding:30px 34px;border-radius:28px;background:#3a3a3b;overflow:hidden}
+.artNotch::before{content:"";position:absolute;top:0;right:0;width:96px;height:58px;background:#080808;border-bottom-left-radius:30px}
+.artNotch h3{margin:0 0 12px;max-width:70%;font-size:19px;font-weight:600;letter-spacing:-.02em;line-height:1.3}
+.artNotch p{margin:0;max-width:72%;color:#d0d0d3;font-size:12.5px;line-height:1.6}
+.artAvatars{position:absolute;right:26px;bottom:26px;display:flex;align-items:center}
+.artAvatars img,.artAvatars b,.artAvatars em{width:34px;height:34px;border-radius:50%;border:2px solid #3a3a3b;margin-left:-9px;object-fit:cover;display:grid;place-items:center;font-size:10px;font-style:normal;font-weight:700}
+.artAvatars img{background:#fff;margin-left:0}.artAvatars b{background:#ffb74d;color:#3a2a10}.artAvatars em{background:#17181a;color:#fff}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1180px){.ovGrid{grid-template-columns:1fr}.metricRow{grid-template-columns:1fr 1fr}.trendLabels{padding-left:0}.trendWrap{grid-template-columns:1fr}.trendWrap h3{font-size:20px}}
+@media(max-width:980px){.loginScene{grid-template-columns:1fr}.loginArt{display:none}}
+@media(max-width:780px){html[data-theme] #app .appShell{display:block;width:100%;margin:0;min-height:100vh;padding-bottom:70px}html[data-theme] #app .sidebar{display:none}html[data-theme] #app .main{border-radius:0;padding:20px 14px 30px;min-height:100vh}.searchPill span{display:none}.searchPill{min-width:46px;padding:0;justify-content:center}.rangePills button{padding:0 14px;height:38px}.metricRow{grid-template-columns:1fr}.ovCard{padding:20px}}
+@media(max-width:520px){html[data-theme] #app .topPrimary{font-size:0;padding:0 16px;height:46px}html[data-theme] #app .topPrimary::after{content:'+ Book';font-size:12px}}
+.loginScene h1,.loginScene h2,.loginScene h3{font-family:'Poppins','Inter',system-ui,sans-serif}
+.artImg{height:62%}
+.artText{top:55%}
+.artNotch{border-top-right-radius:0}
+.artNotch::after{content:"";position:absolute;right:0;top:58px;width:28px;height:28px;background:radial-gradient(circle at 0 100%,transparent 27px,#080808 28px)}
+.gradFill{flex:0 1 auto;min-width:0;max-width:calc(100% - 120px)}
+.gradFill span{white-space:nowrap;overflow:hidden}
+html[data-theme] #app .nav button::after,html[data-theme] #app .nav button.active::after{display:none;content:none}
+.artImg{-webkit-mask-image:linear-gradient(#000 72%,transparent 100%);mask-image:linear-gradient(#000 72%,transparent 100%)}
+html[data-theme] #app .recentRow{border-color:var(--line)}
+html[data-theme] #app .recentRow .activityIcon{background:var(--track);border-color:transparent;color:var(--text)}
+html[data-theme] #app .recentRow strong{color:var(--text)}
+html[data-theme] #app form.formGrid>.panel{display:grid;gap:14px;align-content:start}
+html[data-theme] #app form.formGrid>.panel>.panelTitle{margin-bottom:2px}
+html[data-theme] #app .topbar{flex-wrap:nowrap;justify-content:space-between}
+.pageTitleBlock{flex:1;min-width:0}
+html[data-theme] #app .topUtility{justify-content:flex-end}
+html[data-theme] #app #topActions{order:-1;display:flex;gap:8px}
+@media(max-width:900px){html[data-theme] #app .topbar{flex-wrap:wrap}}
+html[data-theme="light"] #app .btn.danger{background:#ffe8e6;border:1px solid #ffcdc8;color:#c0392b}
+html[data-theme="dark"] #app .btn.danger{background:#3a1f21;border:1px solid #5e3033;color:#ffb4ae}
+
+/* v13 avatars */
+.avatar{overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover;display:block}.avatar.sm{width:34px;height:34px;border-radius:50%;font-size:13px}
+
+/* v13c: auto-hide sidebar (desktop). JS toggles .navOpen on .appShell */
+@media(min-width:781px){
+html[data-theme] #app .appShell{grid-template-columns:minmax(0,1fr)}
+html[data-theme] #app .sidebar{position:fixed;left:14px;top:14px;bottom:14px;height:auto;width:262px;z-index:60;transform:translateX(calc(-100% - 40px));transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s;box-shadow:none}
+html[data-theme] #app .appShell.navOpen .sidebar{transform:none;box-shadow:0 24px 70px rgba(10,12,14,.45)}
+html[data-theme] #app .sideTab{position:fixed;left:0;top:50%;transform:translateY(-50%);width:15px;height:76px;border:0;border-radius:0 10px 10px 0;background:#14181c;color:#fff;font-size:15px;line-height:1;cursor:pointer;opacity:.5;z-index:59;padding:0;transition:opacity .2s,width .2s}
+html[data-theme] #app .sideTab:hover{opacity:1;width:20px}
+html[data-theme] #app .appShell.navOpen .sideTab{display:none}
+}
+@media(max-width:780px){.sideTab,.sideHot{display:none}}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Discover original books and thoughtful writing from ThePageCraft by Ritesh Sharma." />
+    <meta name="theme-color" content="#070707" />
+    <meta property="og:title" content="ThePageCraft — Books that matter" />
+    <meta property="og:description" content="Original books, stories and ideas on history, identity and India." />
+    <meta property="og:type" content="website" />
+    <title>The Pagecraft — Books by Ritesh Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      // Apply saved theme before first paint — avoids flash + guarantees it always sticks
+      (function () {
+        try {
+          var saved = localStorage.getItem('pagecraft_theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', saved);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

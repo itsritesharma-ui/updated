@@ -1,0 +1,15 @@
+V13 - Admin "Edit Dashboard Data" tab (public/tpc-owner-261)
+New sidebar tab below Dashboard. Edit Overview numbers per range (3d / week / month): paid orders, previous orders, revenue, order-completed %, graph bars, customers, buyers, books, posts, per-book sold counts.
+Graph (trend bars), gradient bar and metric progress bars follow the edited values. Blank field = real data.
+Saved in site_settings key 'dashboard_overrides' (private) + browser backup. Stays until you click Reset. Real orders/customers are never modified.
+No SQL needed. Hard refresh (Ctrl+Shift+R) once after deploy.
+V13b: data editor now also covers Orders amounts, per-customer books/spent, coupon redemptions, promotion clicks.
+Labels: admin grants show "Bought"; real payments show "Paid".
+Google profile pictures in Customers / Orders / profile (run RUN_THIS_V13_AVATARS.sql once).
+V13c: Edit Dashboard Data moved to bottom (below Activity Log), removed from More; sidebar auto-hides on desktop and shows on left-edge hover. Shortcut Ctrl+Shift+E opens the editor.
+V13d: Real 'Notify Me on Launch' popup (saves emails to book_launch_subscribers, run RUN_THIS_V13_NOTIFY.sql). Admin tab 'Launch Subscribers' with copy/CSV.
+V13e: per-book 'Payment link' field in admin (run RUN_THIS_V13_PAYLINK.sql) -> 'Buy Now' button on that book on the website.
+V13f: Payment link now stored in site_settings (book_payment_links) - NO SQL needed. Field is right under Price/MRP in every book form (new + existing).
+V13f: Payment link now stored in site_settings (book_payment_links) - NO SQL needed. Field is right under Price/MRP in every book form (new + existing).
+V13.8: service worker no longer caches; vercel no-cache header for admin; build tag in sidebar; Status dropdown blank fix; RUN_THIS_V13_FINAL.sql
+V13.9: sidebar auto-hide rebuilt in JS (mouse at left edge opens it, small tab on the left edge also toggles; closes when mouse leaves).

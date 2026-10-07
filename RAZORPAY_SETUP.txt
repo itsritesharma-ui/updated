@@ -1,0 +1,13 @@
+RAZORPAY SETUP (V14) - 3 steps
+
+1) Supabase > SQL Editor > paste RUN_THIS_V14_RAZORPAY.sql > Run   (only changes the "Verified Razorpay payment" label)
+
+2) Vercel > Project > Settings > Environment Variables (add, then Redeploy):
+   RAZORPAY_KEY_ID          = your key id (rzp_test_... for testing, rzp_live_... for real money)
+   RAZORPAY_KEY_SECRET      = your key secret
+   VITE_RAZORPAY_KEY_ID     = same key id as above (optional, only a fallback)
+   SUPABASE_SERVICE_ROLE_KEY = Supabase > Project Settings > API > service_role  (needed so books appear in My Library)
+
+3) Test: login > add book > Pay Securely > card 4111 1111 1111 1111, any future expiry, any CVV.
+
+Price change: Admin > Books > Price. Razorpay uses the new price automatically. Leave the old "Payment link" field empty.

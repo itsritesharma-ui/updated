@@ -1,0 +1,31 @@
+.toggle {
+  position: fixed;
+  bottom: 32px;
+  right: 96px;
+  z-index: 900;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: rgba(255,153,51,0.25);
+  border: 1px solid rgba(255,153,51,0.5);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
+.toggle:hover { background: rgba(255,153,51,0.4); transform: scale(1.08); }
+.toggle:active { transform: scale(0.9); }
+.toggle.spinning { animation: toggleSpin 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+
+@keyframes toggleSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.25); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@media (max-width: 640px) {
+  .toggle {
+    bottom: 24px;
+    right: 86px;
+    width: 46px; height: 46px;
+  }
+}

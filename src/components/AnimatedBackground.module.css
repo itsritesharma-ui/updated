@@ -1,0 +1,138 @@
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--bg);
+  transition: background-color 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════
+   DARK THEME — liquid orange waves + deep pooling shadow
+   ══════════════════════════════════════════════════════════ */
+.wave {
+  position: absolute;
+  left: 0;
+  bottom: -20%;
+  width: 100%;
+  height: 65vh;
+  background: rgba(255,153,51,0.045);
+  box-shadow: inset 0 0 80px rgba(255,153,51,0.03);
+}
+
+.wave span {
+  position: absolute;
+  width: 220vw;
+  height: 220vw;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -72%);
+  border-radius: 44%;
+}
+
+.wave1 {
+  background: rgba(255,153,51,0.05);
+  animation: waveRotate 18s linear infinite;
+}
+.wave2 {
+  border-radius: 40%;
+  background: rgba(255,153,51,0.03);
+  animation: waveRotate 28s linear infinite reverse;
+}
+.wave3 {
+  border-radius: 42%;
+  background: rgba(10,10,10,0.6);
+  animation: waveRotate 38s linear infinite;
+}
+
+@keyframes waveRotate {
+  0%   { transform: translate(-50%, -72%) rotate(0deg); }
+  100% { transform: translate(-50%, -72%) rotate(360deg); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   LIGHT THEME — warm sunlit gradient blobs + floating bokeh
+   (fully distinct treatment, not a recolor of the dark one)
+   ══════════════════════════════════════════════════════════ */
+[data-theme="light"] .wave {
+  background: rgba(255,153,51,0.08);
+  box-shadow: inset 0 0 100px rgba(255,153,51,0.05);
+}
+[data-theme="light"] .wave1 {
+  background: radial-gradient(circle at 35% 35%, rgba(255,178,80,0.22) 0%, transparent 60%);
+  animation: waveRotate 22s linear infinite;
+}
+[data-theme="light"] .wave2 {
+  background: radial-gradient(circle at 65% 60%, rgba(255,214,153,0.28) 0%, transparent 55%);
+  animation: waveRotate 30s linear infinite reverse;
+}
+/* Replaces the dark pooling shadow with a soft warm glow — no more grey wash */
+[data-theme="light"] .wave3 {
+  background: radial-gradient(circle at 50% 40%, rgba(255,240,210,0.5) 0%, transparent 62%);
+  animation: waveRotate 42s linear infinite;
+}
+
+/* Floating sunlit bokeh — light-mode-only flourish */
+.sparkles { position: absolute; inset: 0; display: none; }
+[data-theme="light"] .sparkles { display: block; }
+
+.sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,178,71,0.5) 0%, rgba(255,178,71,0) 70%);
+  animation: sparkleFloat linear infinite;
+  opacity: 0;
+}
+.sparkle1 { width: 140px; height: 140px; left: 12%; top: 70%; animation-duration: 16s; animation-delay: 0s; }
+.sparkle2 { width: 90px;  height: 90px;  left: 78%; top: 20%; animation-duration: 13s; animation-delay: 2s; }
+.sparkle3 { width: 60px;  height: 60px;  left: 45%; top: 85%; animation-duration: 19s; animation-delay: 4s; }
+.sparkle4 { width: 110px; height: 110px; left: 90%; top: 65%; animation-duration: 21s; animation-delay: 1s; }
+.sparkle5 { width: 70px;  height: 70px;  left: 25%; top: 15%; animation-duration: 15s; animation-delay: 6s; }
+
+@keyframes sparkleFloat {
+  0%   { transform: translate(0, 0) scale(0.8); opacity: 0; }
+  10%  { opacity: 0.7; }
+  50%  { transform: translate(20px, -60px) scale(1.15); opacity: 0.5; }
+  90%  { opacity: 0.15; }
+  100% { transform: translate(-15px, -140px) scale(0.9); opacity: 0; }
+}
+
+/* ── Grid ──────────────────────────────────────── */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,153,51,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,153,51,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+[data-theme="light"] .grid {
+  background-image:
+    linear-gradient(rgba(190,120,40,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(190,120,40,0.05) 1px, transparent 1px);
+}
+
+/* ── Mouse-reactive radial glow ────────────────── */
+.mouseGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 400px at calc(var(--mx, 0.5) * 100%) calc(var(--my, 0.5) * 100%),
+    rgba(255,153,51,0.06) 0%,
+    transparent 70%
+  );
+  transition: background 0.1s;
+}
+[data-theme="light"] .mouseGlow {
+  background: radial-gradient(
+    circle 400px at calc(var(--mx, 0.5) * 100%) calc(var(--my, 0.5) * 100%),
+    rgba(255,153,51,0.14) 0%,
+    transparent 70%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave1, .wave2, .wave3, .sparkle { animation: none; }
+  .sparkles { display: none; }
+}

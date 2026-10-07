@@ -1,0 +1,51 @@
+{
+  "rewrites": [
+    {
+      "source": "/tpc-owner-261",
+      "destination": "/tpc-owner-261/index.html"
+    },
+    {
+      "source": "/tpc-owner-261/",
+      "destination": "/tpc-owner-261/index.html"
+    },
+    {
+      "source": "/ebooks",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ebooks/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/read/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/post/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/payment-success",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/payment-failed",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/tpc-owner-261/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ]
+}

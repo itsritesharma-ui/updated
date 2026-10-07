@@ -1,0 +1,86 @@
+.strip {
+  position: relative;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+}
+
+.tricolor {
+  display: flex;
+  height: 5px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.saffron { flex: 1; background: #ff9933; }
+.white { flex: 1; background: #ffffff; position: relative; display: flex; align-items: center; justify-content: center; }
+.green { flex: 1; background: #138808; }
+
+.chakra {
+  position: absolute;
+  font-size: 9px;
+  line-height: 1;
+  color: #0b0b6b;
+  animation: chakraTurn 6s linear infinite;
+  transform-origin: center;
+}
+
+/* soft light sweeping across the tricolor strip, like a flag catching sun */
+.sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 0%, transparent 40%, rgba(255,255,255,0.55) 50%, transparent 60%, transparent 100%);
+  background-size: 250% 100%;
+  animation: sheenSweep 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sheenSweep {
+  0%   { background-position: 130% 0; }
+  55%  { background-position: -30% 0; }
+  100% { background-position: -30% 0; }
+}
+
+@keyframes chakraTurn {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.msg {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  text-align: center;
+  padding: 7px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--white);
+  background: var(--bg-3);
+  border-bottom: 1px solid var(--border);
+  transition: opacity 0.15s;
+}
+.msg:hover { opacity: 0.85; }
+.msg strong { color: var(--gold-2); }
+.msgText { display: inline-flex; align-items: baseline; gap: 4px; }
+.msgSub {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: none;
+  color: var(--gold);
+  opacity: 0.85;
+}
+.arrow { font-weight: 700; color: var(--gold-2); }
+
+@media (max-width: 640px) {
+  .msg { font-size: 10px; padding: 6px 8px; gap: 4px; }
+  .msgSub { flex-basis: 100%; font-size: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chakra, .sheen { animation: none; }
+}

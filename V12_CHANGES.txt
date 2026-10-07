@@ -1,0 +1,5 @@
+V12 CHANGES - Admin panel redesign (public/tpc-owner-261)
+1. Login page: split layout (form left, dark rounded art card right). Google/social/Remember me/Forgot/Sign up removed. "Welcome - Ritesh Sharma" shown instead. New artwork: login-art.svg.
+2. Dashboard: new "Overview" layout - dark sidebar with white active pill, Light/Dark toggle at bottom, search pill + avatar, date range pills (3 days / week / month), Sales card with gradient bar + trend bars, Best Selling Books card, Metrics row.
+3. All other admin pages get the same rounded, glass-card look (admin-v2.css). Admin UI no longer changes colour with the website theme.
+No SQL needed. Hard refresh (Ctrl+Shift+R) once after deploy.

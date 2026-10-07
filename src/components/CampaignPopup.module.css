@@ -1,0 +1,26 @@
+.overlay { position: fixed; inset: 0; z-index: 9000; display: grid; place-items: center; padding: 20px; background: rgba(3,3,7,.76); backdrop-filter: blur(11px); animation: fade .22s ease both; }
+.popup { position: relative; width: min(470px, 100%); max-height: 92vh; overflow: auto; border-radius: 26px; border: 1px solid rgba(255,153,51,.28); background: linear-gradient(155deg, #121220, #09090e); box-shadow: 0 35px 110px rgba(0,0,0,.72), 0 0 60px rgba(255,153,51,.08); animation: rise .5s cubic-bezier(.2,.8,.2,1) both; }
+.popup::before { content: ''; position: absolute; z-index: 3; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, transparent, #ff9933, #b19dff, transparent); }
+.close { position: absolute; z-index: 5; top: 13px; right: 13px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,.14); color: #fff; background: rgba(0,0,0,.48); backdrop-filter: blur(8px); }
+.posterWrap { position: relative; height: min(320px, 42vh); overflow: hidden; }
+.poster { width: 100%; height: 100%; display: block; object-fit: cover; }
+.posterShade { position: absolute; inset: auto 0 0; height: 45%; background: linear-gradient(transparent, #11111c); }
+.visual { height: 170px; display: grid; place-items: center; overflow: hidden; background: radial-gradient(circle at 50% 38%, rgba(255,153,51,.25), transparent 30%), radial-gradient(circle at 65% 30%, rgba(139,124,246,.17), transparent 30%), linear-gradient(135deg, #171324, #0d0d13); }
+.visual span { display: grid; place-items: center; width: 88px; height: 88px; border-radius: 28px; border: 1px solid rgba(255,153,51,.32); color: #ffb459; font: 800 46px/1 Georgia, serif; background: rgba(255,153,51,.07); box-shadow: 0 18px 50px rgba(0,0,0,.28); transform: rotate(-4deg); }
+.body { position: relative; padding: 25px 27px 27px; }
+.withPoster .body { margin-top: -20px; }
+.kicker { margin: 0 0 7px; color: #ffad55; text-transform: uppercase; letter-spacing: .17em; font-size: 9px; font-weight: 800; }
+.body h2 { margin: 0; color: #fff; font: 800 clamp(25px, 6vw, 35px)/1.08 Georgia, serif; letter-spacing: -.02em; }
+.message { margin: 13px 0 18px; color: #aaa6b3; font-size: 13px; line-height: 1.72; }
+.coupon { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 15px; border-radius: 14px; border: 1px dashed rgba(255,153,51,.42); color: #ffd1a1; background: rgba(255,153,51,.07); }
+.coupon span { font: 900 18px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+.coupon strong { color: #ffad55; font-size: 9px; letter-spacing: .08em; text-align: right; }
+.actions { display: grid; grid-template-columns: 1fr auto; gap: 9px; margin-top: 18px; }
+.primary, .later { border-radius: 13px; padding: 13px 16px; font-weight: 800; font-size: 12px; }
+.primary { border: 0; color: #171108; background: linear-gradient(135deg, #ff9933, #ffbd66 62%, #b19dff); box-shadow: 0 12px 30px rgba(255,153,51,.15); }
+.later { color: #9994a2; border: 1px solid rgba(255,255,255,.09); background: rgba(255,255,255,.025); }
+.queue { margin: 13px 0 0; color: #716d79; text-align: center; font-size: 9px; }
+@keyframes fade { from { opacity: 0 } }
+@keyframes rise { from { opacity: 0; transform: translateY(24px) scale(.965) } }
+@media (max-width: 520px) { .overlay { padding: 12px; align-items: end; } .popup { border-radius: 24px 24px 16px 16px; } .posterWrap { height: 36vh; } .body { padding: 22px 19px 20px; } .actions { grid-template-columns: 1fr; } .later { order: 2; } }
+@media (prefers-reduced-motion: reduce) { .overlay, .popup { animation: none; } }

@@ -1,0 +1,32 @@
+.section { max-width: 1240px; margin: 0 auto; padding: 80px 24px; }
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 28px; }
+.head h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px); line-height: 1.1; color: var(--white); }
+.arrows { display: flex; gap: 8px; }
+.arrows button {
+  width: 44px; height: 44px; border-radius: 50%; font-size: 22px; line-height: 1;
+  background: var(--bg-3); color: var(--text); border: 1px solid var(--border);
+  transition: border-color .2s, color .2s, background-color .2s; cursor: pointer;
+}
+.arrows button:hover { border-color: var(--gold); color: var(--gold); }
+.track {
+  display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 4px 2px 18px; scrollbar-width: none;
+}
+.track::-webkit-scrollbar { display: none; }
+.card {
+  flex: 0 0 min(380px, 86%); scroll-snap-align: start; margin: 0;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 22px;
+  padding: 28px; border-radius: 26px; background: var(--surface); border: 1px solid var(--border);
+  box-shadow: 0 6px 22px rgba(0,0,0,.08);
+}
+.mark { font-family: var(--font-display); font-size: 54px; line-height: .6; color: var(--gold); height: 22px; }
+.card blockquote { color: var(--text); font-size: 15px; line-height: 1.75; }
+.card figcaption { display: flex; align-items: center; gap: 12px; }
+.card figcaption span:last-child { display: grid; gap: 2px; }
+.card strong { color: var(--white); font-size: 14px; }
+.card small { color: var(--text-2); font-size: 12px; }
+.avatar {
+  width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; flex: none;
+  background: var(--button-color, var(--gold)); color: var(--button-text, #1a1308); font-weight: 800;
+}
+@media (max-width: 600px) { .section { padding: 56px 14px; } .arrows { display: none; } }

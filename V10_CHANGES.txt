@@ -1,0 +1,5 @@
+V10 CHANGES
+1. Admin > Homepage Editor me naye sections: "Website Numbers" (Readers, Rating, Titles, Copies) aur "Header / Navigation Bar".
+2. Header ab floating rounded box hai (logo.jpg, pill-style links, rounded Login button).
+3. Hero stats box, scroll offset (floating header ke liye).
+Koi naya SQL nahi chahiye - sab homepage_config me save hota hai. Admin me "Publish Homepage" dabana zaroori hai.

@@ -1,0 +1,36 @@
+THEPAGECRAFT V8 — DO THESE STEPS ONCE
+
+V8.2 OPENING ANIMATION
+- Website and admin panel both show the new ThePageCraft cinematic intro when opened or refreshed.
+- No extra Supabase SQL or environment variable is required for the animation.
+- If an older admin screen is cached, press Ctrl + Shift + R once.
+
+V8.3 ADMIN UI
+- Owner Control Center now uses the new white SaaS dashboard layout with orange, blue and green accents.
+- Existing Supabase features and environment variables are unchanged.
+- No new SQL or ENV setup is required for this visual redesign.
+
+1) Open Supabase Dashboard -> SQL Editor.
+2) Open RUN_THIS_V8_COUPONS_CAMPAIGNS.sql from this project.
+3) Copy the complete SQL, paste it in SQL Editor and click Run.
+4) Open Vercel -> your ThePageCraft project -> Settings -> Environment Variables.
+5) Add SUPABASE_SERVICE_ROLE_KEY with the secret service-role key from Supabase Project Settings -> API Keys.
+6) Confirm RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET are already present.
+7) Redeploy this v8 project.
+8) Open https://www.thepagecraft.in/tpc-owner-261/index.html
+
+ADMIN SE KYA MILEGA
+- Coupons & Offers: create, edit, pause and schedule discounts.
+- Customers & Profiles: full customer profile, edit safe profile data, see orders and manage book access.
+- Promotions & Alerts: send popup notification, poster or coupon to all accounts or selected accounts.
+- Dashboard Home: quick customer notification sender.
+- Website Home: permanent My Notifications section for the logged-in customer.
+
+DELIVERY CHECK
+- Customer must sign in with the exact account selected in the admin dropdown.
+- The popup and homepage inbox refresh automatically within about 8 seconds.
+- If old admin code appears, use Ctrl + Shift + R once.
+
+IMPORTANT SECURITY
+- SUPABASE_SERVICE_ROLE_KEY is server-only.
+- Never put it in src/, public/, GitHub code, screenshots or any VITE_ variable.
